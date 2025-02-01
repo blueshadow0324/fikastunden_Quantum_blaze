@@ -70,6 +70,7 @@ nav a:hover {
     height: 24px;
     cursor: pointer;
     margin-top: 10px; /* Moves the icon down by 10px */
+    margin-right: 35px;
 }
 
 /* Main Content */
@@ -261,16 +262,16 @@ button.add-to-cart:active {
 
 .checkout-form {
     background-color: #ffffff;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 12px;
     max-width: 500px;
-    width: 100%;
+    width: 90%; /* Adjusted for smaller screens */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .checkout-form h2 {
-    font-size: 24px;
-    margin-bottom: 1.5rem;
+    font-size: 22px; /* Slightly smaller font size for mobile */
+    margin-bottom: 1.2rem;
     font-weight: 600;
     color: #1d1d1f;
 }
@@ -284,23 +285,23 @@ button.add-to-cart:active {
 
 .checkout-form input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 1rem;
+    padding: 8px; /* Slightly smaller padding for mobile */
+    margin-bottom: 0.8rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px; /* Slightly smaller font size for mobile */
 }
 
 .checkout-form button {
-    padding: 12px 20px;
+    padding: 10px 16px; /* Slightly smaller padding for mobile */
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px; /* Slightly smaller font size for mobile */
     cursor: pointer;
     background-color: #007aff;
     color: #fff;
     transition: background-color 0.3s;
-    margin-right: 10px;
+    margin-right: 8px; /* Slightly smaller margin for mobile */
 }
 
 .checkout-form button:hover {
@@ -314,6 +315,28 @@ button.add-to-cart:active {
 
 .checkout-form button[type="button"]:hover {
     background-color: #bbb;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    .checkout-form {
+        padding: 1rem; /* Less padding for smaller screens */
+    }
+
+    .checkout-form h2 {
+        font-size: 20px; /* Smaller font size for smaller screens */
+        margin-bottom: 1rem;
+    }
+
+    .checkout-form input {
+        padding: 8px; /* Smaller padding for smaller screens */
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+
+    .checkout-form button {
+        padding: 8px 14px; /* Smaller padding for smaller screens */
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
 }
 
 /* About Section */
