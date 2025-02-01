@@ -1,0 +1,198 @@
+/* General Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+}
+
+/* Header */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.top-bar h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Mobile Navigation - Fixed at Bottom */
+.mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #1d1d1f;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.mobile-nav a:hover {
+    color: #007aff;
+}
+
+/* Main Content */
+main {
+    padding: 70px 15px 60px; /* Header + Bottom Nav padding */
+    text-align: center;
+}
+
+/* Products Section */
+.products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.product {
+    width: 90%;
+    max-width: 320px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Add to Cart Button */
+button.add-to-cart {
+    background-color: #007aff;
+    color: white;
+    font-size: 14px;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button.add-to-cart:hover {
+    background-color: #0063cc;
+}
+
+/* Cart Menu */
+.cart-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cart-menu.open {
+    transform: translateX(0);
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.cart-header button {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Checkout Form */
+.checkout-form {
+    width: 95%;
+    max-width: 400px;
+    padding: 1rem;
+    margin: auto;
+}
+
+.checkout-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.checkout-form button {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007aff;
+    color: white;
+    transition: background 0.3s;
+}
+
+.checkout-form button:hover {
+    background-color: #0063cc;
+}
+
+/* About & Contact Sections */
+.om-oss,
+.kontakt {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+}
+
+.om-oss h2,
+.kontakt h2 {
+    font-size: 22px;
+}
