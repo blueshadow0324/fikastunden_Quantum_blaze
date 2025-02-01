@@ -254,6 +254,8 @@ button.add-to-cart:active {
     justify-content: center;
     align-items: center;
     z-index: 1001;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .checkout-modal.open {
@@ -264,16 +266,18 @@ button.add-to-cart:active {
     background-color: #ffffff;
     padding: 2rem;
     border-radius: 12px;
+    width: 90%;
     max-width: 500px;
-    width: 100%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
 }
 
 .checkout-form h2 {
-    font-size: 24px;
-    margin-bottom: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 1.2rem;
     font-weight: 600;
     color: #1d1d1f;
+    text-align: center;
 }
 
 .checkout-form label {
@@ -285,23 +289,25 @@ button.add-to-cart:active {
 
 .checkout-form input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 1rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 .checkout-form button {
-    padding: 12px 20px;
+    width: 100%;
+    padding: 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
     background-color: #007aff;
     color: #fff;
     transition: background-color 0.3s;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .checkout-form button:hover {
