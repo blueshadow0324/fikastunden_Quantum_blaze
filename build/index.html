@@ -170,6 +170,11 @@
       alert("Din kundvagn är tom!");
       return;
     }
+    
+    if not (tel) == 702 31 702 30 {
+      alert("Fel postkod, använd: 702 31, 702 30 eller 702 29");
+      return;
+    }
 
     let orderDetails = cart.map(item => `${item.name} (x${item.quantity}): ${item.price * item.quantity} kr`).join("\n");
 
