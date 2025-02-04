@@ -66,6 +66,8 @@
 
       <label for="city">Ort:</label>
       <input type="text" id="city" name="city" placeholder="Ort" required>
+      <label for="email">E-Mail<:</label>
+      <input type="text" id="email" name="email" placeholder="example@example.com" required>
 
       <button type="submit">Slutför köp</button>
       <button type="button" onclick="closeCheckout()">Avbryt</button>
@@ -172,6 +174,7 @@
     formData.append("address", address);
     formData.append("postcode", postcode);
     formData.append("city", city);
+    formData.append("email", email);
     formData.append("order", orderDetails);
 
     fetch("https://formspree.io/f/xldgbkej", {
