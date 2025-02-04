@@ -172,8 +172,8 @@
     }
     
     if (![70231, 70230, 70229].includes(tel)) {
-  alert("Fel postkod, använd: 702 31, 702 30 eller 702 29");
-  return;
+      alert("Fel postkod, använd: 702 31, 702 30 eller 702 29");
+      return;
 }
 
     let orderDetails = cart.map(item => `${item.name} (x${item.quantity}): ${item.price * item.quantity} kr`).join("\n");
