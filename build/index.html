@@ -22,7 +22,7 @@
   <nav>
     <a href="index.html">Hem</a>
     <a href="produkter.html">Produkter</a>
-    <a href="omoss.html">Om oss</a>
+    <a href="">Om oss</a>
     <a href="kontakt.html">Kontakt</a>
   </nav>
 </header>
@@ -66,10 +66,6 @@
 
       <label for="city">Ort:</label>
       <input type="text" id="city" name="city" placeholder="Ort" required>
-      <label for="email">E-Mail</label>
-      <input type="text" id="email" name="email" placeholder="example@example.com" required>
-      <label for="tel">Telefon</label>
-      <input type="text" id="tel" name="tel" placeholder="Din telefon" required>
 
       <button type="submit">Slutför köp</button>
       <button type="button" onclick="closeCheckout()">Avbryt</button>
@@ -163,15 +159,9 @@
     const address = document.getElementById("address").value;
     const postcode = document.getElementById("postcode").value;
     const city = document.getElementById("city").value;
-    const email = document.getElementById("email").value;
-    const tel = document.getElementById("tel").value;
 
     if (!cart.length) {
       alert("Din kundvagn är tom!");
-      return;
-    }
-    if (![70231, 70230, 70229].includes(postcode)) {
-      alert("Fel postkod, just nu leverar vi bara till: 702 31, 702 30 och 702 29");
       return;
     }
 
@@ -182,8 +172,6 @@
     formData.append("address", address);
     formData.append("postcode", postcode);
     formData.append("city", city);
-    formData.append("email", email);
-    formData.append("tel", tel);
     formData.append("order", orderDetails);
 
     fetch("https://formspree.io/f/xldgbkej", {
