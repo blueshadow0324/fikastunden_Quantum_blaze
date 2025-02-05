@@ -57,4 +57,47 @@ function updateCart() {
       <span>${item.name} (x${item.quantity})</span>
       <span>${item.price * item.quantity} kr</span>
     `;
-    cartItemsElement
+    cartItemsElement.appendChild(cartItem);
+  });
+
+  cartTotalElement.innerText = `Totalt: ${total} kr`;
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function openCheckout() {
+  checkoutModal.classList.add("open");
+}
+
+function closeCheckout() {
+  checkoutModal.classList.remove("open");
+}
+
+function clearCart() {
+  cart = [];
+  updateCart();
+}
+
+function submitCheckout(event) {
+  event.preventDefault();
+  // Add checkout form submission logic here
+  alert("Tack för din beställning!");
+  clearCart();
+}
+
+// Render products on the page
+function renderProducts() {
+  productsElement.innerHTML = "";
+  products.forEach(product => {
+    const productElement = document.createElement("div");
+    productElement.className = "product";
+    productElement.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <div>
+        <h3>${product.name}</h3>
+        <p>${product.price} kr</p>
+        <button onclick="addToCart('${product.name}', ${product.price})">Lägg till i kundvagnen</button>
+      </div>
+    `;
+    productsElement.appendChild(productElement);
+  });
+}
