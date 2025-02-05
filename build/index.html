@@ -6,76 +6,77 @@
   <title>Fikastunden - Hem</title>
   <link rel="icon" type="image/x-icon" href="fikastunden.png">
   <link rel="stylesheet" href="styles.css">
-  <script src="index.js"></script>
 </head>
 <body>
+  <header>
+    <div class="top-bar">
+      <h1>Fikastunden</h1>
+      <div class="search-login">
+        <a href="#" id="cart-toggle">
+          <img src="shopping.png" alt="Shopping Cart" class="cart-icon">
+        </a>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Hem</a>
+      <a href="produkter.html">Produkter</a>
+      <a href="omoss.html">Om oss</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
 
-<header>
-  <div class="top-bar">
-    <h1>Fikastunden</h1>
-    <div class="search-login">
-      <a href="#" onclick="toggleCart(event)">
-        <img src="shopping.png" alt="Shopping Cart" class="cart-icon">
-      </a>
+  <main>
+    <section class="bestsellers">
+      <h2>Våra bästsäljare</h2>
+      <div class="products" id="products"></div>
+    </section>
+  </main>
+
+  <!-- Cart Menu -->
+  <div class="cart-menu" id="cart-menu">
+    <div class="cart-header">
+      <span>Din kundvagn</span>
+      <button id="close-cart">✖</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-total">
+      Totalt: <span id="cart-total">0</span> kr
+    </div>
+    <div class="cart-buttons">
+      <button id="checkout-button">Kassa</button>
+      <button id="clear-cart">Rensa</button>
     </div>
   </div>
-  <nav>
-    <a href="index.html">Hem</a>
-    <a href="produkter.html">Produkter</a>
-    <a href="omoss.html">Om oss</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
-</header>
 
-<main>
-  <section class="bestsellers">
-    <h2>Våra bästsäljare</h2>
-    <div class="products" id="products"></div>
-  </section>
-</main>
+  <!-- Checkout Modal -->
+  <div class="checkout-modal" id="checkout-modal">
+    <div class="checkout-form">
+      <h2>Leveransinformation</h2>
+      <form id="delivery-form">
+        <label for="name">Namn:</label>
+        <input type="text" id="name" name="name" placeholder="Ditt namn" required>
 
-<!-- Cart Menu -->
-<div class="cart-menu" id="cart-menu">
-  <div class="cart-header">
-    <span>Din kundvagn</span>
-    <button onclick="toggleCart(event)">✖</button>
+        <label for="address">Adress:</label>
+        <input type="text" id="address" name="address" placeholder="Din adress" required>
+
+        <label for="postcode">Postnummer:</label>
+        <input type="text" id="postcode" name="postcode" placeholder="Postnummer" required>
+
+        <label for="city">Ort:</label>
+        <input type="text" id="city" name="city" placeholder="Ort" required>
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" placeholder="example@example.com" required>
+
+        <label for="tel">Telefon:</label>
+        <input type="tel" id="tel" name="tel" placeholder="Din telefon" required>
+
+        <button type="submit">Slutför köp</button>
+        <button type="button" id="cancel-checkout">Avbryt</button>
+      </form>
+    </div>
   </div>
-  <div class="cart-items" id="cart-items"></div>
-  <div class="cart-total">
-    Totalt: <span id="cart-total">0</span> kr
-  </div>
-  <div class="cart-buttons">
-    <button onclick="openCheckout()">Kassa</button>
-    <button onclick="clearCart()">Rensa</button>
-  </div>
-</div>
 
-<!-- Checkout Modal -->
-<div class="checkout-modal" id="checkout-modal" style="display: none;">
-  <div class="checkout-form">
-    <h2>Leveransinformation</h2>
-    <form id="delivery-form" onsubmit="submitCheckout(event)">
-      <label for="name">Namn:</label>
-      <input type="text" id="name" name="name" placeholder="Ditt namn" required>
-
-      <label for="address">Adress:</label>
-      <input type="text" id="address" name="address" placeholder="Din adress" required>
-
-      <label for="postcode">Postnummer:</label>
-      <input type="text" id="postcode" name="postcode" placeholder="Postnummer" required>
-
-      <label for="city">Ort:</label>
-      <input type="text" id="city" name="city" placeholder="Ort" required>
-      <label for="email">E-Mail</label>
-      <input type="text" id="email" name="email" placeholder="example@example.com" required>
-      <label for="tel">Telefon</label>
-      <input type="text" id="tel" name="tel" placeholder="Din telefon" required>
-
-      <button type="submit">Slutför köp</button>
-      <button type="button" onclick="closeCheckout()">Avbryt</button>
-    </form>
-  </div>
-</div>
-
+  <script src="index.js"></script>
 </body>
 </html>
