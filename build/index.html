@@ -70,6 +70,8 @@
       <input type="text" id="email" name="email" placeholder="example@example.com" required>
       <label for="tel">Telefon</label>
       <input type="text" id="tel" name="tel" placeholder="Din telefon" required>
+      <label for="msg">Meddelade</label>
+      <input type="text" id="msg" name="msg" placeholder="Annpasat meddelande (valfritt)">
 
       <button type="submit">Slutför köp</button>
       <button type="button" onclick="closeCheckout()">Avbryt</button>
@@ -165,7 +167,8 @@
     const city = document.getElementById("city").value;
     const email = document.getElementById("email").value;
     const tel = document.getElementById("tel").value;
-
+    const msg = document.getElementById("msg").value;
+        
     if (!cart.length) {
       alert("Din kundvagn är tom!");
       return;
@@ -185,6 +188,7 @@
     formData.append("city", city);
     formData.append("email", email);
     formData.append("tel", tel);
+    formData.append("msg", msg);
     formData.append("order", orderDetails);
 
     fetch("https://formspree.io/f/xldgbkej", {
