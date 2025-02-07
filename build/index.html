@@ -6,182 +6,221 @@
   <title>Fikastunden - Hem</title>
   <link rel="icon" type="image/x-icon" href="fikastunden.png">
   <link rel="stylesheet" href="styles.css">
+  <script src="index.js"></script>
 </head>
 <body>
-  <header>
-    <div class="top-bar">
-      <h1>Fikastunden</h1>
-      <div class="search-login">
-        <a href="#" id="cart-toggle">
-          <img src="shopping.png" alt="Shopping Cart" class="cart-icon">
-        </a>
-      </div>
-    </div>
-    <nav>
-      <a href="index.html">Hem</a>
-      <a href="produkter.html">Produkter</a>
-      <a href="omoss.html">Om oss</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="bestsellers">
-      <h2>Våra bästsäljare</h2>
-      <div class="products" id="products"></div>
-    </section>
-  </main>
-
-  <!-- Cart Menu -->
-  <div class="cart-menu" id="cart-menu">
-    <div class="cart-header">
-      <span>Din kundvagn</span>
-      <button id="close-cart">✖</button>
-    </div>
-    <div class="cart-items" id="cart-items"></div>
-    <div class="cart-total">
-      Totalt: <span id="cart-total">0</span> kr
-    </div>
-    <div class="cart-buttons">
-      <button id="checkout-button">Kassa</button>
-      <button id="clear-cart">Rensa</button>
+<header>
+  <div class="top-bar">
+    <h1>Fikastunden</h1>
+    <div class="search-login">
+      <a href="#" onclick="toggleCart(event)">
+        <img src="shopping.png" alt="Shopping Cart" class="cart-icon">
+      </a>
     </div>
   </div>
+  <nav>
+    <a href="index.html">Hem</a>
+    <a href="produkter.html">Produkter</a>
+    <a href="omoss.html">Om oss</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+</header>
 
-  <!-- Checkout Modal -->
-  <div class="checkout-modal" id="checkout-modal">
-    <div class="checkout-form">
-      <h2>Leveransinformation</h2>
-      <form id="delivery-form">
-        <label for="name">Namn:</label>
-        <input type="text" id="name" name="name" placeholder="Ditt namn" required>
+<main>
+  <section class="bestsellers">
+    <h2>Våra bästsäljare</h2>
+    <div class="products" id="products"></div>
+  </section>
+</main>
 
-        <label for="address">Adress:</label>
-        <input type="text" id="address" name="address" placeholder="Din adress" required>
-
-        <label for="postcode">Postnummer:</label>
-        <input type="text" id="postcode" name="postcode" placeholder="Postnummer" required>
-
-        <label for="city">Ort:</label>
-        <input type="text" id="city" name="city" placeholder="Ort" required>
-
-        <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email" placeholder="example@example.com" required>
-
-        <label for="tel">Telefon:</label>
-        <input type="tel" id="tel" name="tel" placeholder="Din telefon" required>
-
-        <button type="submit">Slutför köp</button>
-        <button type="button" id="cancel-checkout">Avbryt</button>
-      </form>
-    </div>
+<!-- Cart Menu -->
+<div class="cart-menu" id="cart-menu">
+  <div class="cart-header">
+    <span>Din kundvagn</span>
+    <button onclick="toggleCart(event)">✖</button>
   </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-total">
+    Totalt: <span id="cart-total">0</span> kr
+  </div>
+  <div class="cart-buttons">
+    <button onclick="openCheckout()">Kassa</button>
+    <button onclick="clearCart()">Rensa</button>
+  </div>
+</div>
 
-  <script src="index.js"></script>
-  <script>
+<!-- Checkout Modal -->
+<div class="checkout-modal" id="checkout-modal" style="display: none;">
+  <div class="checkout-form">
+    <h2>Leveransinformation</h2>
+    <form id="delivery-form" onsubmit="submitCheckout(event)">
+      <label for="name">Namn:</label>
+      <input type="text" id="name" name="name" placeholder="Ditt namn" required>
+
+      <label for="address">Adress:</label>
+      <input type="text" id="address" name="address" placeholder="Din adress" required>
+
+      <label for="postcode">Postnummer:</label>
+      <input type="text" id="postcode" name="postcode" placeholder="Postnummer" required>
+
+      <label for="city">Ort:</label>
+      <input type="text" id="city" name="city" placeholder="Ort" required>
+      <label for="email">E-Mail</label>
+      <input type="text" id="email" name="email" placeholder="example@example.com" required>
+      <label for="tel">Telefon</label>
+      <input type="text" id="tel" name="tel" placeholder="Din telefon" required>
+
+      <button type="submit">Slutför köp</button>
+      <button type="button" onclick="closeCheckout()">Avbryt</button>
+    </form>
+  </div>
+</div>
+
+<script>
   const cartMenu = document.getElementById("cart-menu");
-const cartItemsElement = document.getElementById("cart-items");
-const cartTotalElement = document.getElementById("cart-total");
-const productsElement = document.getElementById("products");
-const checkoutModal = document.getElementById("checkout-modal");
+  const cartItemsElement = document.getElementById("cart-items");
+  const cartTotalElement = document.getElementById("cart-total");
+  const productsElement = document.getElementById("products");
+  const checkoutModal = document.getElementById("checkout-modal");
 
-const products = [
-  { name: "Kolakakor", price: 29, image: "kolakakor.jpeg" },
-  { name: "Chokladbollar", price: 29, image: "chokladbollar.jpeg" },
-  { name: "Pepparkakor", price: 19, image: "pepparkakor.jpeg" },
-];
+  let cart = [];
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const products = [
+    { name: "Kolakakor", price: 29, image: "kolakakor.jpeg" },
+    { name: "Chokladbollar", price: 29, image: "chokladbollar.jpeg" },
+    { name: "Pepparkakor", price: 19, image: "pepparkakor.jpeg" },
+  ];
 
-// Event Listeners
-document.getElementById("cart-toggle").addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent default <a> behavior
-  toggleCart();
-});
-document.getElementById("close-cart").addEventListener("click", toggleCart);
-document.getElementById("checkout-button").addEventListener("click", openCheckout);
-document.getElementById("clear-cart").addEventListener("click", clearCart);
-document.getElementById("cancel-checkout").addEventListener("click", closeCheckout);
-document.getElementById("delivery-form").addEventListener("submit", submitCheckout);
-
-// Load initial state
-window.addEventListener("load", () => {
-  renderProducts();
-  updateCart();
-});
-
-// Cart Functions
-function toggleCart() {
-  cartMenu.classList.toggle("open");
-}
-
-function addToCart(productName, productPrice) {
-  const existingItem = cart.find(item => item.name === productName);
-  if (existingItem) {
-    existingItem.quantity++;
-  } else {
-    cart.push({ name: productName, price: productPrice, quantity: 1 });
+  function loadCart() {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      cart = JSON.parse(savedCart);
+      updateCart();
+    }
   }
-  updateCart();
-  alert(`${productName} har lagts till i kundvagnen!`);
-}
 
-function updateCart() {
-  cartItemsElement.innerHTML = "";
-  let total = 0;
+  function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
 
-  cart.forEach(item => {
-    total += item.price * item.quantity;
-    const cartItem = document.createElement("div");
-    cartItem.className = "cart-item";
-    cartItem.innerHTML = `
-      <span>${item.name} (x${item.quantity})</span>
-      <span>${item.price * item.quantity} kr</span>
-    `;
-    cartItemsElement.appendChild(cartItem);
-  });
+  function toggleCart(event) {
+    if (event) event.preventDefault();
+    cartMenu.classList.toggle("open");
+  }
 
-  cartTotalElement.innerText = `Totalt: ${total} kr`;
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
+  function addToCart(productName, productPrice) {
+    const existingItem = cart.find(item => item.name === productName);
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cart.push({ name: productName, price: productPrice, quantity: 1 });
+    }
+    updateCart();
+    alert(`${productName} har lagts till i kundvagnen!`);
+  }
 
-function openCheckout() {
-  checkoutModal.classList.add("open");
-}
+  function updateCart() {
+    cartItemsElement.innerHTML = "";
+    let total = 0;
 
-function closeCheckout() {
-  checkoutModal.classList.remove("open");
-}
+    cart.forEach(item => {
+      total += item.price * item.quantity;
+      const cartItem = document.createElement("div");
+      cartItem.className = "cart-item";
+      cartItem.innerHTML = `
+        <span>${item.name} (x${item.quantity})</span>
+        <span>${item.price * item.quantity} kr</span>
+      `;
+      cartItemsElement.appendChild(cartItem);
+    });
 
-function clearCart() {
-  cart = [];
-  updateCart();
-}
+    cartTotalElement.textContent = total;
+    saveCart();
+  }
 
-function submitCheckout(event) {
-  event.preventDefault();
-  // Add checkout form submission logic here
-  alert("Tack för din beställning!");
-  clearCart();
-}
+  function clearCart() {
+    cart = [];
+    updateCart();
+  }
 
-// Render products on the page
-function renderProducts() {
-  productsElement.innerHTML = "";
-  products.forEach(product => {
-    const productElement = document.createElement("div");
-    productElement.className = "product";
-    productElement.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <div>
+  function openCheckout() {
+    if (cart.length === 0) {
+      alert("Din kundvagn är tom!");
+      return;
+    }
+    checkoutModal.style.display = "flex";
+  }
+
+  function closeCheckout() {
+    checkoutModal.style.display = "none";
+  }
+
+  function submitCheckout(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const address = document.getElementById("address").value;
+    const postcode = document.getElementById("postcode").value;
+    const city = document.getElementById("city").value;
+    const email = document.getElementById("email").value;
+    const tel = document.getElementById("tel").value;
+
+    if (!cart.length) {
+      alert("Din kundvagn är tom!");
+      return;
+    }
+
+    if (!["702 31", "702 30", "702 29", "70231", "70230", "70229"].includes(postcode)) {
+      alert ("Fel: error: Post");
+      return;
+    }
+
+    let orderDetails = cart.map(item => `${item.name} (x${item.quantity}): ${item.price * item.quantity} kr`).join("\n");
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("address", address);
+    formData.append("postcode", postcode);
+    formData.append("city", city);
+    formData.append("email", email);
+    formData.append("tel", tel);
+    formData.append("order", orderDetails);
+
+    fetch("https://formspree.io/f/xldgbkej", {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" }
+    })
+            .then(response => response.json())
+            .then(data => {
+              alert("Tack för din beställning! Vi har mottagit din order.");
+              closeCheckout();
+              clearCart();
+            })
+            .catch(error => {
+              alert("Något gick fel. Vi skickar beställningen via e-post.");
+              const subject = encodeURIComponent("Ny beställning från Fikastunden");
+              const body = encodeURIComponent(`Namn: ${name}%0AAdress: ${address}%0APostnummer: ${postcode}%0AOrt: ${city}%0A%0AOrderdetaljer:%0A${orderDetails}`);
+              window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+            });
+  }
+
+  function renderProducts() {
+    productsElement.innerHTML = products.map(product => `
+      <div class="product">
+        <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
-        <p>${product.price} kr</p>
-        <button onclick="addToCart('${product.name}', ${product.price})">Lägg till i kundvagnen</button>
+        <p>${product.price},00 kr</p>
+        <button class="add-to-cart" onclick="addToCart('${product.name}', ${product.price})">Lägg till i kundvagnen</button>
       </div>
-    `;
-    productsElement.appendChild(productElement);
+    `).join("");
+  }
+
+  window.addEventListener("load", () => {
+    loadCart();
+    renderProducts();
   });
-}
 </script>
 </body>
 </html>
