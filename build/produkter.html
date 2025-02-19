@@ -6,8 +6,25 @@
   <title>Fikastunden - Hem</title>
   <link rel="icon" type="image/x-icon" href="fikastunden.png">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .alert-message {
+      background-color: #fffae6;
+      color: #8a6d3b;
+      padding: 10px;
+      border: 1px solid #8a6d3b;
+      margin: 10px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
 </head>
 <body>
+
+<div id="welcome-alert" class="alert-message">
+  Välkommen till Fikastunden! Vi gör hemleveranser till din dörr! 🎉
+</div>
+
 <header>
   <div class="top-bar">
     <h1>Fikastunden</h1>
@@ -77,6 +94,17 @@
   </div>
 </div>
 
+<script>
+  window.addEventListener("load", () => {
+    const welcomeAlert = document.getElementById("welcome-alert");
+    welcomeAlert.style.display = "block";
+
+    // Hide the alert after 5 seconds
+    setTimeout(() => {
+      welcomeAlert.style.display = "none";
+    }, 5000);
+  });
+</script>
 <script src="index.js"></script>
 </body>
 </html>

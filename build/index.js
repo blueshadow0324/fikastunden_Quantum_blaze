@@ -80,9 +80,19 @@ function clearCart() {
 
 function submitCheckout(event) {
   event.preventDefault();
-  // Add checkout form submission logic here
+
+  const postcodeInput = document.getElementById("postcode").value.replace(/\s/g, ""); // Remove all spaces
+  const allowedPostcodes = ["70231", "70230", "70229"];
+
+  if (!allowedPostcodes.includes(postcodeInput)) {
+    alert("Endast postnummer 70231, 70230 och 70229 är tillåtna.");
+    return;
+  }
+
+  // Proceed with checkout if postcode is valid
   alert("Tack för din beställning!");
   clearCart();
+  closeCheckout();
 }
 
 // Render products on the page
