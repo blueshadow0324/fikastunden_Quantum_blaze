@@ -8,7 +8,7 @@ const products = [
   { name: "Kolakakor", price: 29, image: "kolakakor.jpeg" },
   { name: "Chokladbollar", price: 29, image: "chokladbollar.jpeg" },
   { name: "Pepparkakor", price: 19, image: "pepparkakor.jpeg" },
-  { name: "Chokladkaka", price: 25, image: "chokladkaka.jpg" },
+  { name: "Chokladkaka", price: 25, image: "chokladkakor.jpeg" },
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -96,7 +96,7 @@ function renderProducts() {
       <div>
         <h3>${product.name}</h3>
         <p>${product.price} kr</p>
-        <button onclick="addToCart('${product.name}', ${product.price})">Lägg till i kundvagnen</button>
+        <button onclick="addToCart('${product.name}', ${product.price})" class="add-to-cart-button">Lägg till i kundvagnen</button>
       </div>
     `;
     productsElement.appendChild(productElement);

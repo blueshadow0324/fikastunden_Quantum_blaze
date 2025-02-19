@@ -55,6 +55,7 @@ nav a {
     transition: color 0.3s ease;
 }
 
+
 nav a:hover {
     color: #007aff; /* Apple's blue color for hover effect */
 }
@@ -64,6 +65,20 @@ nav a:hover {
     display: flex;
     align-items: center;
 }
+
+.add-to-cart-button {
+    background-color: #007aff;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+}
+
 
 .cart-icon {
     width: 24px; /* Adjust size as needed */
