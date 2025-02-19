@@ -8,7 +8,7 @@ const products = [
   { name: "Kolakakor", price: 29, image: "kolakakor.jpeg" },
   { name: "Chokladbollar", price: 29, image: "chokladbollar.jpeg" },
   { name: "Pepparkakor", price: 19, image: "pepparkakor.jpeg" },
-  { name: "Chokladkaka", price: 25, image: "chokladkakor.jpeg" },
+  { name: "Chokladkaka", price: 25, image: "chokladkakor.JPG" },
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
