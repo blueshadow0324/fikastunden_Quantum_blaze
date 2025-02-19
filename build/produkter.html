@@ -7,15 +7,22 @@
   <link rel="icon" type="image/x-icon" href="fikastunden.png">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .alert-message {
-      background-color: #fffae6;
-      color: #8a6d3b;
-      padding: 10px;
-      border: 1px solid #8a6d3b;
-      margin: 10px;
-      text-align: center;
-      font-weight: bold;
-      display: none;
+      .alert-message {
+        background-color: #fffaf0; /* Soft cream color for warmth */
+        color: #704214; /* Rich brown for readability */
+        padding: 12px 16px; /* Slightly more padding for better spacing */
+        border: 2px solid #8a6d3b; /* Slightly thicker border for emphasis */
+        border-radius: 8px; /* Rounded corners for a softer look */
+        margin: 15px auto; /* Centered with some space */
+        text-align: center;
+        font-weight: bold;
+        font-size: 1rem; /* Slightly larger text */
+        display: none;
+        width: 80%; /* Responsive width */
+        max-width: 600px; /* Prevents it from being too wide */
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      }
+
     }
   </style>
 </head>
@@ -44,7 +51,7 @@
 
 <main>
   <section class="bestsellers">
-    <h2>Våra bästsäljare</h2>
+    <h2>Våra produkter</h2>
     <div class="products" id="products"></div>
   </section>
 </main>

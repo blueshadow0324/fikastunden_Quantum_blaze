@@ -3,11 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fikastunden - Hem - Fika Leverans till dig hem</title>
+  <title>Fikastunden - Hem</title>
   <link rel="icon" type="image/x-icon" href="fikastunden.png">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .alert-message {
+      background-color: #fffae6;
+      color: #8a6d3b;
+      padding: 10px;
+      border: 1px solid #8a6d3b;
+      margin: 10px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
 </head>
 <body>
+
+<div id="welcome-alert" class="alert-message">
+  Välkommen till Fikastunden! Vi gör hemleveranser till din dörr! 🎉
+</div>
+
 <header>
   <div class="top-bar">
     <h1>Fikastunden</h1>
@@ -27,7 +44,7 @@
 
 <main>
   <section class="bestsellers">
-    <h2>Våra produkter</h2>
+    <h2>Våra bästsäljare</h2>
     <div class="products" id="products"></div>
   </section>
 </main>
@@ -47,7 +64,6 @@
     <button id="clear-cart">Rensa</button>
   </div>
 </div>
-
 
 <!-- Checkout Modal -->
 <div class="checkout-modal" id="checkout-modal">
@@ -78,6 +94,17 @@
   </div>
 </div>
 
+<script>
+  window.addEventListener("load", () => {
+    const welcomeAlert = document.getElementById("welcome-alert");
+    welcomeAlert.style.display = "block";
+
+    // Hide the alert after 5 seconds
+    setTimeout(() => {
+      welcomeAlert.style.display = "none";
+    }, 5000);
+  });
+</script>
 <script src="index.js"></script>
 </body>
 </html>
