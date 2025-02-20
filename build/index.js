@@ -109,23 +109,28 @@ function submitCheckout(event) {
   formData.append("tel", tel);
   formData.append("order", orderDetails);
 
-  fetch("https://formspree.io/f/xldgbkej", {
-    method: "POST",
-    body: formData,
-    headers: { "Accept": "application/json" }
-  })
-      .then(response => response.json())
-      .then(data => {
-        alert("Tack för din beställning! Vi har mottagit din order.");
-        closeCheckout();
-        clearCart();
-      })
-      .catch(error => {
-        alert("Något gick fel. Vi skickar beställningen via e-post.");
-        const subject = encodeURIComponent("Ny beställning från Fikastunden");
-        const body = encodeURIComponent(`Namn: ${name}%0AAdress: ${address}%0APostnummer: ${postcode}%0AOrt: ${city}%0A%0AOrderdetaljer:%0A${orderDetails}`);
-        window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
-      });
+  alert("Något gick fel. Vi skickar beställningen via e-post.");
+  const subject = encodeURIComponent("Ny beställning från Fikastunden");
+  const body = encodeURIComponent(`Namn: ${name}%0AAdress: ${address}%0APostnummer: ${postcode}%0AOrt: ${city}%0A%0AOrderdetaljer:%0A${orderDetails}`);
+  window.location.href = `mailto:fikastundenmail@gmail.com?subject=${subject}&body=${body}`;
+
+  //fetch("https://formspree.io/f/xldgbkej", {
+    //method: "POST",
+    //body: formData,
+    //headers: { "Accept": "application/json" }
+  //})
+      //.then(response => response.json())
+      //.then(data => {
+        //alert("Tack för din beställning! Vi har mottagit din order.");
+        //closeCheckout();
+        //clearCart();
+      //})
+      //.catch(error => {
+       // alert("Något gick fel. Vi skickar beställningen via e-post.");
+       // const subject = encodeURIComponent("Ny beställning från Fikastunden");
+        //const body = encodeURIComponent(`Namn: ${name}%0AAdress: ${address}%0APostnummer: ${postcode}%0AOrt: ${city}%0A%0AOrderdetaljer:%0A${orderDetails}`);
+       // window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+      //});
 }
 
 // Render products on the page
