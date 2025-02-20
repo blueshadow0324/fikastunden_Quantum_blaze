@@ -81,18 +81,51 @@ function clearCart() {
 function submitCheckout(event) {
   event.preventDefault();
 
-  const postcodeInput = document.getElementById("postcode").value.replace(/\s/g, ""); // Remove all spaces
-  const allowedPostcodes = ["70231", "70230", "70229"];
+  const name = document.getElementById("name").value;
+  const address = document.getElementById("address").value;
+  const postcode = document.getElementById("postcode").value;
+  const city = document.getElementById("city").value;
+  const email = document.getElementById("email").value;
+  const tel = document.getElementById("tel").value;
 
-  if (!allowedPostcodes.includes(postcodeInput)) {
-    alert("Endast postnummer 70231, 70230 och 70229 är tillåtna.");
+  if (!cart.length) {
+    alert("Din kundvagn är tom!");
     return;
   }
 
-  // Proceed with checkout if postcode is valid
-  alert("Tack för din beställning!");
-  clearCart();
-  closeCheckout();
+  if (!["702 31", "702 30", "702 29", "70231", "70230", "70229"].includes(postcode)) {
+    alert ("Vi tar bra emot postkoderna: 702 31, 702 29 och 702 29");
+    return;
+  }
+
+  let orderDetails = cart.map(item => `${item.name} (x${item.quantity}): ${item.price * item.quantity} kr`).join("\n");
+
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("address", address);
+  formData.append("postcode", postcode);
+  formData.append("city", city);
+  formData.append("email", email);
+  formData.append("tel", tel);
+  formData.append("order", orderDetails);
+
+  fetch("https://formspree.io/f/xldgbkej", {
+    method: "POST",
+    body: formData,
+    headers: { "Accept": "application/json" }
+  })
+      .then(response => response.json())
+      .then(data => {
+        alert("Tack för din beställning! Vi har mottagit din order.");
+        closeCheckout();
+        clearCart();
+      })
+      .catch(error => {
+        alert("Något gick fel. Vi skickar beställningen via e-post.");
+        const subject = encodeURIComponent("Ny beställning från Fikastunden");
+        const body = encodeURIComponent(`Namn: ${name}%0AAdress: ${address}%0APostnummer: ${postcode}%0AOrt: ${city}%0A%0AOrderdetaljer:%0A${orderDetails}`);
+        window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+      });
 }
 
 // Render products on the page
