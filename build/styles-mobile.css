@@ -20,10 +20,10 @@ header h1 {
     margin: 0;
 }
 
-/* Shopping Cart Icon - Make it more manageable */
+/* Shopping Cart Icon */
 .cart-icon {
-    width: 30px;  /* Adjust size as needed */
-    height: 30px;
+    width: 40px; /* Adjusted size */
+    height: 40px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
@@ -35,7 +35,7 @@ header h1 {
 /* Checkout Form Styles */
 .checkout-form {
     background-color: #ffffff;
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 12px;
     max-width: 500px;
     width: 90%;
@@ -116,7 +116,7 @@ header h1 {
     }
 }
 
-/* Cart Menu - Adjust for Mobile */
+/* Cart Menu Adjustments for Mobile */
 @media (max-width: 768px) {
     .cart-menu {
         width: 100%;
@@ -135,4 +135,89 @@ footer {
 footer p {
     margin: 0;
     font-size: 14px;
+}
+
+/* Cart Menu Styles */
+.cart-menu {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 250px;
+    padding: 20px;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+}
+
+.cart-menu.active {
+    display: flex;
+}
+
+.cart-menu h3 {
+    font-size: 20px;
+    color: #007aff;
+    margin-bottom: 10px;
+}
+
+.cart-menu .item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cart-menu .item span {
+    font-size: 14px;
+    color: #555;
+}
+
+.cart-menu .item .price {
+    font-weight: bold;
+    color: #007aff;
+}
+
+.cart-menu .item .quantity {
+    font-size: 14px;
+    color: #555;
+}
+
+.cart-menu .total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.cart-menu .checkout-btn {
+    background-color: #007aff;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+    display: block;
+}
+
+.cart-menu .checkout-btn:hover {
+    background-color: #0063cc;
+}
+
+.cart-menu .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #007aff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cart-menu .close-btn:hover {
+    color: #0063cc;
 }
