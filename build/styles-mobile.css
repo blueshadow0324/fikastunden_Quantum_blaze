@@ -1,198 +1,72 @@
-/* General Styles */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f7;
-    color: #1d1d1f;
-}
+<div class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="bg-white bg-opacity-80 backdrop-blur-md py-2.5 text-center sticky top-0 z-50 border-b border-gray-200">
+    <div class="max-w-screen-xl mx-auto px-4 flex items-center justify-between">
+      <h1 class="text-2xl font-semibold text-gray-900 flex-1">Header Title</h1>
+      <nav class="flex gap-5 justify-center flex-1">
+        <a href="#" class="text-gray-900 font-medium text-base py-2 transition-colors duration-300 ease-in-out hover:text-blue-500">Link 1</a>
+        <a href="#" class="text-gray-900 font-medium text-base py-2 transition-colors duration-300 ease-in-out hover:text-blue-500">Link 2</a>
+        <a href="#" class="text-gray-900 font-medium text-base py-2 transition-colors duration-300 ease-in-out hover:text-blue-500">Link 3</a>
+      </nav>
+      <div class="ml-auto flex items-center">
+        <button class="bg-blue-500 text-white text-base py-3 px-5 rounded-full transition-colors duration-300 ease-in-out transform hover:bg-blue-600 hover:scale-105">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </header>
 
-/* Header */
-header {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 12px;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
+  <!-- Main Content -->
+  <main class="max-w-screen-xl mx-auto my-5 text-center">
+    <div class="bestsellers">
+      <h2 class="text-2xl font-semibold mb-5 text-gray-900">Best Sellers</h2>
+    </div>
 
-.top-bar h1 {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
-}
+    <!-- Products Section -->
+    <div class="products flex justify-center gap-5 flex-wrap">
+      <div class="product bg-white border border-gray-300 rounded-xl p-5 max-w-xs text-center transition-all duration-300 ease-in-out hover:transform hover:-translate-y-1 hover:shadow-lg mb-5">
+        <img src="product-image.jpg" alt="Product" class="max-w-full rounded-lg mb-4">
+        <h3 class="text-lg font-semibold my-2">Product Name</h3>
+        <p class="text-gray-600 text-base">Product description goes here.</p>
+        <a href="#" class="text-gray-900 font-medium text-base mt-2 inline-block">View Product</a>
+        <button class="bg-blue-500 text-white text-base py-3 px-5 rounded-full mt-4 w-full transition-all duration-300 ease-in-out hover:bg-blue-600 hover:scale-105">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </main>
 
-/* Mobile Navigation - Fixed at Bottom */
-.mobile-nav {
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: white;
-    padding: 10px 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
+  <!-- Cart Menu Styles -->
+  <div class="cart-menu fixed top-0 right-0 w-96 h-full bg-white shadow-lg transform translate-x-full transition-all duration-300 ease-in-out z-50 p-6 overflow-y-auto">
+    <div class="cart-header flex justify-between items-center mb-6 text-xl font-semibold pb-4">
+      <span>Your Cart</span>
+      <button class="text-2xl text-gray-900">×</button>
+    </div>
+    <div class="cart-items mb-6 max-h-[60vh] overflow-y-auto">
+      <div class="cart-item flex justify-between mb-4 py-3 border-b border-gray-200">
+        <span>Product Name</span>
+        <span>$19.99</span>
+      </div>
+    </div>
+    <div class="cart-total text-xl font-semibold mt-4 text-right">Total: $19.99</div>
+    <div class="cart-buttons flex justify-between mt-6">
+      <button class="py-3 px-5 rounded-md bg-blue-500 text-white text-base transition-colors duration-300 ease-in-out hover:bg-blue-600">Checkout</button>
+      <button class="py-3 px-5 rounded-md bg-gray-300 text-gray-900 text-base transition-colors duration-300 ease-in-out hover:bg-gray-400">Close</button>
+    </div>
+  </div>
 
-.mobile-nav a {
-    flex: 1;
-    text-align: center;
-    text-decoration: none;
-    color: #1d1d1f;
-    font-size: 14px;
-    padding: 10px;
-}
-
-.mobile-nav a:hover {
-    color: #007aff;
-}
-
-/* Main Content */
-main {
-    padding: 70px 15px 60px; /* Header + Bottom Nav padding */
-    text-align: center;
-}
-
-/* Products Section */
-.products {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.product {
-    width: 90%;
-    max-width: 320px;
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.product img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.product h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 10px 0;
-}
-
-.product p {
-    font-size: 14px;
-    color: #666;
-}
-
-/* Add to Cart Button */
-button.add-to-cart {
-    background-color: #007aff;
-    color: white;
-    font-size: 14px;
-    padding: 12px;
-    border: none;
-    border-radius: 20px;
-    width: 100%;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button.add-to-cart:hover {
-    background-color: #0063cc;
-}
-
-/* Cart Menu */
-.cart-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-    padding: 20px;
-    overflow-y: auto;
-}
-
-.cart-menu.open {
-    transform: translateX(0);
-}
-
-.cart-header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.cart-header button {
-    font-size: 22px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    font-size: 14px;
-    border-bottom: 1px solid #eee;
-}
-
-/* Checkout Form */
-.checkout-form {
-    width: 95%;
-    max-width: 400px;
-    padding: 1rem;
-    margin: auto;
-}
-
-.checkout-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.checkout-form button {
-    padding: 10px;
-    font-size: 14px;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007aff;
-    color: white;
-    transition: background 0.3s;
-}
-
-.checkout-form button:hover {
-    background-color: #0063cc;
-}
-
-/* About & Contact Sections */
-.om-oss,
-.kontakt {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: left;
-}
-
-.om-oss h2,
-.kontakt h2 {
-    font-size: 22px;
-}
+  <!-- Checkout Modal Styles -->
+  <div class="checkout-modal fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50 hidden">
+    <div class="checkout-form bg-white p-6 rounded-xl max-w-md w-11/12 shadow-xl">
+      <h2 class="text-xl font-semibold mb-5 text-gray-900">Checkout</h2>
+      <form>
+        <label for="name" class="block text-gray-900 mb-2">Name</label>
+        <input type="text" id="name" class="w-full p-2 mb-3 border border-gray-300 rounded-md text-gray-900 text-sm" placeholder="Your Name">
+        <label for="address" class="block text-gray-900 mb-2">Address</label>
+        <input type="text" id="address" class="w-full p-2 mb-3 border border-gray-300 rounded-md text-gray-900 text-sm" placeholder="Your Address">
+        <button type="submit" class="bg-blue-500 text-white py-3 px-5 rounded-md text-sm transition-colors duration-300 ease-in-out hover:bg-blue-600">Proceed</button>
+        <button type="button" class="bg-gray-300 text-gray-900 py-3 px-5 rounded-md text-sm transition-colors duration-300 ease-in-out hover:bg-gray-400 mt-4">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
