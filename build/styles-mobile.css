@@ -1,6 +1,3 @@
-/* Add Bootstrap Grid System */
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
-
 /* General Styles */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -76,6 +73,11 @@ nav a:hover {
     nav {
         flex-direction: column;
         gap: 10px;
+    }
+
+    nav a {
+        padding: 8px;
+        font-size: 14px;
     }
 }
 
