@@ -22,14 +22,9 @@ header h1 {
 
 /* Shopping Cart Icon */
 .cart-icon {
-    width: 40px; /* Adjusted size */
-    height: 40px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.cart-icon:hover {
-    transform: scale(1.1);  /* Slight hover effect for better interactivity */
 }
 
 /* Checkout Form Styles */
