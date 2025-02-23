@@ -96,47 +96,6 @@ header h1 {
     transform: translateY(0);
 }
 
-/* Mobile Checkout Form Adjustments */
-@media (max-width: 768px) {
-    .checkout-form {
-        padding: 1rem;
-    }
-
-    .checkout-form h2 {
-        font-size: 20px;
-    }
-
-    .checkout-form label {
-        font-size: 14px;
-    }
-
-    .checkout-form input,
-    .checkout-form textarea {
-        font-size: 14px;
-    }
-}
-
-/* Cart Menu Adjustments for Mobile */
-@media (max-width: 768px) {
-    .cart-menu {
-        width: 100%;
-        padding: 1rem;
-    }
-}
-
-/* Footer Styles */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-footer p {
-    margin: 0;
-    font-size: 14px;
-}
-
 /* Cart Menu Styles */
 .cart-menu {
     background-color: #ffffff;
@@ -220,4 +179,24 @@ footer p {
 
 .cart-menu .close-btn:hover {
     color: #0063cc;
+}
+
+/* Mobile Adjustments for Checkout Form */
+@media (max-width: 768px) {
+    .checkout-form {
+        padding: 1rem;
+    }
+
+    .checkout-form h2 {
+        font-size: 20px;
+    }
+
+    .checkout-form label {
+        font-size: 14px;
+    }
+
+    .checkout-form input,
+    .checkout-form textarea {
+        font-size: 14px;
+    }
 }
