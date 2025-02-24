@@ -1,193 +1,108 @@
+/* General Styles */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f7;
-    color: #1d1d1f;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
 }
 
 /* Header */
 header {
-    background-color: rgba(255, 255, 255, 0.72);
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
     padding: 10px 0;
-    box-sizing: border-box;
-    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1020;
 }
 
-.top-bar {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.top-bar h1 {
-    font-size: 24px;
-    color: #1d1d1f;
-    margin: 0;
+.navbar-brand {
     font-weight: 600;
-    text-align: center;
-    flex: 1;
+    font-size: 24px;
+    color: #212529;
 }
 
-nav {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex: 1;
-}
-
-nav a {
-    text-decoration: none;
-    color: #1d1d1f;
+.navbar-nav .nav-link {
+    color: #212529;
     font-weight: 500;
-    font-size: 16px;
-    padding: 10px;
     transition: color 0.3s ease;
 }
 
-
-nav a:hover {
-    color: #007aff; /* Apple's blue color for hover effect */
+.navbar-nav .nav-link:hover {
+    color: #007bff;
 }
 
-.search-login {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-}
-
-.add-to-cart-button {
-    background-color: #007aff;
-    color: white;
-    font-size: 16px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 15px;
-    width: 100%;
-}
-
-
+/* Cart Icon */
 .cart-icon {
-    width: 24px; /* Adjust size as needed */
-    height: 24px;
+    font-size: 24px;
     cursor: pointer;
-    margin-top: 10px; /* Moves the icon down by 10px */
-    margin-right: 35px;
 }
 
 /* Main Content */
 main {
     max-width: 1200px;
     margin: 20px auto;
-    text-align: center;
 }
 
-.bestsellers h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-weight: 600;
-    color: #1d1d1f;
-}
-
-/* Products Section */
-.products {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.product {
-    background: white;
+/* Product Section */
+.product-card {
+    background: #fff;
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 20px;
-    max-width: 300px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 20px;
 }
 
-.product:hover {
+.product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.product img {
+.product-card img {
     max-width: 100%;
     border-radius: 8px;
     margin-bottom: 15px;
 }
 
-.product h3 {
-    margin: 10px 0;
+.product-card h3 {
     font-size: 18px;
     font-weight: 600;
 }
 
-.product p {
+.product-card p {
     color: #666;
     font-size: 16px;
 }
 
-.product a {
-    text-decoration: none;
-    color: #1d1d1f;
-    font-weight: 500;
-    font-size: 16px;
-    display: block;
-    margin-top: 10px;
-}
-
-/* Add to Cart Button Style */
-button.add-to-cart {
-    background-color: #007aff;
-    color: white;
-    font-size: 16px;
-    padding: 12px 20px;
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
     border: none;
     border-radius: 25px;
-    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 20px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 15px;
-    width: 100%;
 }
 
-button.add-to-cart:hover {
-    background-color: #0063cc;
+.btn-primary:hover {
+    background-color: #0056b3;
     transform: translateY(-2px);
 }
 
-button.add-to-cart:active {
-    background-color: #004999;
-    transform: translateY(0);
-}
-
-/* Cart Menu Styles */
+/* Cart Sidebar */
 .cart-menu {
     position: fixed;
     top: 0;
     right: 0;
-    width: 400px; /* Increased width */
+    width: 400px;
     height: 100%;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-    padding: 1.5rem; /* Increased padding */
+    z-index: 1050;
+    padding: 20px;
     overflow-y: auto;
 }
 
@@ -199,64 +114,36 @@ button.add-to-cart:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem; /* Increased margin */
-    font-size: 1.5rem; /* Increased font size */
+    font-size: 1.5rem;
     font-weight: 600;
-    padding-bottom: 15px; /* Increased padding */
-}
-
-.cart-header button {
-    background: none;
-    border: none;
-    font-size: 2rem; /* Increased font size */
-    cursor: pointer;
-    color: #1d1d1f;
-}
-
-.cart-items {
-    margin-bottom: 1.5rem; /* Increased margin */
-    max-height: 60vh; /* Increased height */
-    overflow-y: auto;
+    margin-bottom: 15px;
 }
 
 .cart-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem; /* Increased margin */
-    font-size: 16px; /* Increased font size */
-    padding: 12px; /* Increased padding */
+    padding: 10px;
     border-bottom: 1px solid #eee;
 }
 
 .cart-total {
-    font-size: 18px; /* Increased font size */
+    font-size: 18px;
     font-weight: 600;
-    margin-top: 15px; /* Increased margin */
     text-align: right;
 }
 
 .cart-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 1.5rem; /* Increased margin */
+    margin-top: 20px;
 }
 
-.cart-buttons button {
-    padding: 12px 20px; /* Increased padding */
-    border: none;
+.cart-buttons .btn {
     border-radius: 5px;
-    font-size: 16px; /* Increased font size */
-    cursor: pointer;
-    background-color: #007aff;
-    color: #fff;
-    transition: background-color 0.3s;
+    font-size: 16px;
 }
 
-.cart-buttons button:hover {
-    background-color: #0063cc;
-}
-
-/* Checkout Modal Styles */
+/* Checkout Modal */
 .checkout-modal {
     display: none;
     position: fixed;
@@ -267,7 +154,7 @@ button.add-to-cart:active {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 1001;
+    z-index: 1050;
 }
 
 .checkout-modal.open {
@@ -275,198 +162,36 @@ button.add-to-cart:active {
 }
 
 .checkout-form {
-    background-color: #ffffff;
-    padding: 1.5rem;
+    background: #fff;
+    padding: 20px;
     border-radius: 12px;
+    width: 90%;
     max-width: 500px;
-    width: 90%; /* Adjusted for smaller screens */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .checkout-form h2 {
-    font-size: 22px; /* Slightly smaller font size for mobile */
-    margin-bottom: 1.2rem;
-    font-weight: 600;
-    color: #1d1d1f;
-}
-
-.checkout-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #1d1d1f;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .checkout-form input {
     width: 100%;
-    padding: 8px; /* Slightly smaller padding for mobile */
-    margin-bottom: 0.8rem;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 14px; /* Slightly smaller font size for mobile */
+    font-size: 14px;
 }
 
-.checkout-form button {
-    padding: 10px 16px; /* Slightly smaller padding for mobile */
-    border: none;
-    border-radius: 5px;
-    font-size: 14px; /* Slightly smaller font size for mobile */
-    cursor: pointer;
-    background-color: #007aff;
-    color: #fff;
-    transition: background-color 0.3s;
-    margin-right: 8px; /* Slightly smaller margin for mobile */
+.checkout-form .btn {
+    padding: 10px 16px;
+    font-size: 14px;
 }
 
-.checkout-form button:hover {
-    background-color: #0063cc;
-}
-
-.checkout-form button[type="button"] {
-    background-color: #ccc;
-    color: #1d1d1f;
-}
-
-.checkout-form button[type="button"]:hover {
-    background-color: #bbb;
-}
-
-/* Media Queries for Mobile Devices */
+/* Responsive Design */
 @media (max-width: 600px) {
     .checkout-form {
-        padding: 1rem; /* Less padding for smaller screens */
+        padding: 15px;
     }
-
-    .checkout-form h2 {
-        font-size: 20px; /* Smaller font size for smaller screens */
-        margin-bottom: 1rem;
-    }
-
-    .checkout-form input {
-        padding: 8px; /* Smaller padding for smaller screens */
-        font-size: 14px; /* Smaller font size for smaller screens */
-    }
-
-    .checkout-form button {
-        padding: 8px 14px; /* Smaller padding for smaller screens */
-        font-size: 14px; /* Smaller font size for smaller screens */
-    }
-}
-
-/* About Section */
-.om-oss {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    text-align: left;
-}
-
-.om-oss h2 {
-    font-size: 28px;
-    color: #007aff;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #007aff;
-    padding-bottom: 10px;
-}
-
-.om-oss p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #1d1d1f;
-    margin-bottom: 15px;
-}
-
-.om-oss .cta-button {
-    background-color: #007aff;
-    color: white;
-    font-size: 16px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 15px;
-}
-
-.om-oss .cta-button:hover {
-    background-color: #0063cc;
-    transform: translateY(-2px);
-}
-
-/* Contact Section */
-.kontakt {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    text-align: left;
-}
-
-.kontakt h2 {
-    font-size: 28px;
-    color: #007aff;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #007aff;
-    padding-bottom: 10px;
-}
-
-.kontakt p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #1d1d1f;
-    margin-bottom: 20px;
-}
-
-#contact-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-top: 10px;
-}
-
-input, textarea {
-    padding: 10px;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-button[type="submit"] {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007aff;
-    color: #fff;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #0063cc;
-}
-
-.checkout-form {
-    background: white;
-    padding: 20px;
-    width: 300px;
-    border-radius: 5px;
 }
