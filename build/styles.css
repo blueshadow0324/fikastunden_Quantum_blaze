@@ -21,7 +21,7 @@ header {
 }
 
 .navbar-brand {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     color: #333;
     text-decoration: none;
@@ -34,9 +34,8 @@ header {
 
 /* Main Content */
 main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 100%;
+    padding: 15px;
 }
 
 /* Product Cards */
@@ -44,21 +43,17 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .product-card {
     background: white;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
-    width: 250px;
+    width: 100%;
+    max-width: 300px;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-card img {
@@ -67,20 +62,20 @@ main {
 }
 
 .product-card h3 {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 16px;
+    margin: 8px 0;
 }
 
 .product-card p {
     color: #666;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .btn {
     background: #007bff;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -95,13 +90,14 @@ main {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: 100%;
     background: white;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     transition: right 0.3s ease-in-out;
     z-index: 1050;
-    padding: 20px;
+    padding: 15px;
     overflow-y: auto;
 }
 
@@ -113,20 +109,20 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .cart-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 8px;
     border-bottom: 1px solid #ddd;
 }
 
 .cart-total {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     text-align: right;
     margin-top: 10px;
@@ -135,7 +131,7 @@ main {
 .cart-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .cart-buttons .btn {
@@ -162,21 +158,21 @@ main {
 
 .checkout-form {
     background: white;
-    padding: 20px;
+    padding: 15px;
     border-radius: 12px;
     width: 90%;
-    max-width: 500px;
+    max-width: 400px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .checkout-form h2 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .checkout-form input {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -184,8 +180,26 @@ main {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
-    .checkout-form {
-        padding: 15px;
+@media (min-width: 600px) {
+    .product-container {
+        justify-content: space-around;
+    }
+
+    .product-card {
+        width: 45%;
+    }
+
+    .cart-menu {
+        width: 350px;
+    }
+}
+
+@media (min-width: 900px) {
+    .product-container {
+        justify-content: space-between;
+    }
+
+    .product-card {
+        width: 30%;
     }
 }
