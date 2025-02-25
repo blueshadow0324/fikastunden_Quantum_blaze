@@ -192,6 +192,9 @@ main {
     .cart-menu {
         width: 350px;
     }
+    .checkout-model {
+        width: 500px;
+    }
 }
 
 .alert-message {
