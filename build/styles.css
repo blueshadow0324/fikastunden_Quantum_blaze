@@ -194,6 +194,17 @@ main {
     }
 }
 
+.alert-message {
+      background-color: #fffae6;
+      color: #8a6d3b;
+      padding: 10px;
+      border: 1px solid #8a6d3b;
+      margin: 10px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+    }
+
 @media (min-width: 900px) {
     .product-container {
         justify-content: space-between;
